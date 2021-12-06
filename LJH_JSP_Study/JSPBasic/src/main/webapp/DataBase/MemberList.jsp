@@ -28,7 +28,6 @@
 				<td align="center" width="150">아이디</td>
 				<td align="center" width="150">이메일</td>
 				<td align="center" width="150">전화번호</td>
-				<td align="center" width="150">취미</td>
 			</tr>
 
 			<%
@@ -41,7 +40,6 @@
 					href="MemberInfo.jsp?id=<%=bean.getId()%>"> <%=bean.getId() %></a></td>
 				<td align="center" width="150"><%=bean.getEmail() %></td>
 				<td align="center" width="150"><%=bean.getTel() %></td>
-				<td align="center" width="150"><%=bean.getHobby() %></td>
 			</tr>
 			<%} %>
 

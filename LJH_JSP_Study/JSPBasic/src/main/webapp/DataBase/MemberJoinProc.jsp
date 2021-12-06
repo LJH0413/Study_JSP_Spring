@@ -15,26 +15,17 @@
 
 	<%
 	request.setCharacterEncoding("UTF-8");
-
-	/* <!-- 취미 부분은 별도록 읽어드려 다시 빈클래스에 저장  --> */
-	String[] hobby = request.getParameterValues("hobby");
-	String texthobby = "";
-	
-	for(int i=0; i<hobby.length; i++) {
-		texthobby += hobby[i] + " ";
-	}
 	
 %>
 
 	<!-- useBean 으로 한번에 데이터 받아오기  -->
-	<jsp:useBean id="mbean" class="model.MemberBean">
-		<jsp:setProperty name="mbean" property="*" />
+	<jsp:useBean id = "mbean" class= "model.MemberBean">
+		<jsp:setProperty name="mbean" property="*" /><!--맵핑 시키시오  -->
 	</jsp:useBean>
 
 	<%
 
-	mbean.setHobby(texthobby);
-
+	
 	//데이터 베이스 클래스 객체 생성
 	MemberDAO mdao = new MemberDAO();
 	mdao.insertMember(mbean);
