@@ -156,9 +156,8 @@
 
       <Context docBase="JSPBook" path="/JSPBook" reloadable="true" source="org.eclipse.jst.jee.server:JSPBook"/>
       <Context docBase="JSPBasic" path="/JSPBasic" reloadable="true" source="org.eclipse.jst.jee.server:JSPBasic"/>
-      <Context docBase="JSP_Notice_Board" path="/JSP_Notice_Board" reloadable="true" source="org.eclipse.jst.jee.server:JSP_Notice_Board">
-      </Context>
-      </Host>
+      
+      <Context docBase="JSP_Board" path="/JSP_Board" reloadable="true" source="org.eclipse.jst.jee.server:JSP_Board"/></Host>
     </Engine>
   </Service>
 </Server>
