@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2db9d437-d9ae-440e-8ba5-a607ab9828ac" name="Default Changelist" comment="" />
+    <list default="true" id="2db9d437-d9ae-440e-8ba5-a607ab9828ac" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/Study_JSP_Spring.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring/.idea/Spring.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring_LJH/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring_LJH/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring_LJH/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring_LJH/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring_LJH/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring_LJH/spring-demo/src/main/java/com/example/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring_LJH/spring-demo/src/main/java/com/example/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JSP_Board/src/main/java/Model/BoardDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/JSP_Board/src/main/java/Model/BoardDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Servers/Tomcat v9.0 Server at localhost-config/server.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Servers/Tomcat v9.0 Server at localhost-config/server.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spring_MVC_setting/pom.xml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,6 +46,7 @@
       <updated>1638426677602</updated>
       <workItem from="1638426679269" duration="69000" />
       <workItem from="1638835629005" duration="247000" />
+      <workItem from="1639373158170" duration="233000" />
     </task>
     <servers />
   </component>
