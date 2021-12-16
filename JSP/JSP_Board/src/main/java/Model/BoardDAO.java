@@ -14,7 +14,7 @@ public class BoardDAO {
 	
 	Connection conn; //db접근 설정
 
-	//PreparedStatement pstmt; //데이터베이스 쿼리 실행시켜주는 객체
+	PreparedStatement pstmt; //데이터베이스 쿼리 실행시켜주는 객체
 
 	ResultSet rs; //데이터베이스 테이블의 결과를 리턴 해주는 
 	
