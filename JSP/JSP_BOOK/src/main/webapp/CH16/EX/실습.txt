@@ -1,0 +1,24 @@
+
+Create Table mbTbl (
+    idx number not null, 
+    id varchar2(100) not null,
+    pass varchar2(100) not null, 
+    name varchar2(100) not null, 
+    email varchar2(100) not null, 
+    city varchar2(100)  null, 
+    phone varchar2(100) null
+    );
+    
+PreparedStatement 객체를 사용해서 
+   1. Insert
+   2. Update
+   3. Delete
+   4. Select
+JSTL을 사용해서 mbTbl을 
+   1. Insert
+   2. Update
+   3. Delete
+   4. Select
+   
+금요일 오후(6:20분) 까지 EX.zip으로 압축 해서 팀장 ==> 반장 => 
+   
