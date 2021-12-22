@@ -20,7 +20,7 @@ public class UserDAO{
 	/*--------------------------------------------------------------------------------------------------------*/
 	
 	//SQL 명령어
-	private final String USER_GET = "select * from users where id = ? and password = ?";
+	private final String USER_GET = "select * from users where id=? and password=?";
 	
 	/*--------------------------------------------------------------------------------------------------------*/
 	

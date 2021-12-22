@@ -16,8 +16,11 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	private BoardDAO boardDAO;
 	
-
+	
 	public void insertBoard(BoardVO vo) {
+		if(vo.getSeq() == 0) {
+			throw new IllegalArgumentException("0번 글은 등록 할 수 없습니다.");
+		}
 		boardDAO.inserBoard(vo);
 	}
 

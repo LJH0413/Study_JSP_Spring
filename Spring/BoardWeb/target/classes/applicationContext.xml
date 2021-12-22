@@ -17,12 +17,27 @@
 	   </context:component-scan>
 	   
 	   <bean id="log" class="com.springbook.biz.common.LogAdvice"></bean>
+	   <bean id="before" class="com.springbook.biz.common.BeforeAdvice"></bean>
+	   <bean id="afterReturning" class="com.springbook.biz.common.AfterReturningAdvice"></bean>
+	   <bean id="afterThrowing" class="com.springbook.biz.common.AfterThrowingAdvice"></bean>
+	   <bean id="after" class="com.springbook.biz.common.AfterAdvice"></bean>
+	    <bean id="around" class="com.springbook.biz.common.AroundAdvice"></bean>
+	   
 	   
 	   <aop:config>
 	   		<aop:pointcut id="allPointcut" expression="execution(* com.springbook.biz..*Impl.*(..))"/>
-	   		
-	   		<aop:aspect ref="log">
-	   			<aop:before pointcut-ref="allPointcut" method="printLog"/>
+	   		<aop:aspect ref="around">
+	   			<aop:around pointcut-ref="allPointcut" method="aroundLog"/>
+	   		</aop:aspect>
+	   </aop:config>
+	   
+	   <aop:config>
+	   		<aop:pointcut id="getPointcut" expression="execution(* com.springbook.biz..*Impl.*(..))"/>
+	   		<aop:aspect ref="around">
+	   			<aop:after-returning pointcut-ref="getPointcut" method="afterLog" returning="returnObj"/>
 	   		</aop:aspect>
 	   </aop:config>
 </beans>
+
+<!-- impl비지니스 매소드 : 조인포인 -->
+<!-- 포인트컷은 필터링된 조인포인트 -->

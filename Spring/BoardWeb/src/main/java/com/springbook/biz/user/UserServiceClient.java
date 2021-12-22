@@ -19,8 +19,8 @@ public class UserServiceClient {
 		//3. 로그인 기능테스트
 		UserVO vo = new UserVO();
 		
-		vo.setId("test");
-		vo.setPassword("test123");
+		vo.setId("SA");
+		vo.setPassword("");
 		
 		UserVO user = userService.getUser(vo);
 		if(user != null) {
