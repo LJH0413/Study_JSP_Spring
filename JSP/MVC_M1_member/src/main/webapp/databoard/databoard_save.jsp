@@ -7,8 +7,6 @@
 <!-- DB 연결 설정 --> 
 <%@ include file = "dbconn_mysql.jsp" %>
 
-
-
 <%
 
  String fileurl= "C:/eclipse-workspace/MVC_M_1/src/main/webapp/databoard/upload/"; 
