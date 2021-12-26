@@ -1,13 +1,25 @@
 package com.springbook.biz.common;
 
 import org.aopalliance.intercept.Joinpoint;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.stereotype.Service;
 
+@Service
+@Aspect // aspect = pointcut + advice
 public class LogAdvice {
+	@Pointcut("execution(* com.springbook.biz..*impl.*(..))")
+	public void allPointcut() {}
 	
-	public void printLog(Joinpoint jp)	{
-		//조인포인트 선언시 비즈니스 매소드 호출 시에 객체 생성 및 객체에 저장되어 어드바이스 호출시 인자로 넘겨줌
-		
-		System.out.println("[common log] 비지니스 로직 수행 전 동작");
+	@Before("allPointcut()")
+	public void printLog() {
+		System.out.println("[공통로그] 비즈니스 로직 수행 전 동작");
 	}
+	//pointcut + before (advice)
+	
+//	@Pointcut("execution(* com.springbook.biz..*impl.get*(..))")
+//	public void getPointcut() {}
+	
 
 }
