@@ -3,22 +3,19 @@ package com.springbook.biz.board;
 import java.util.List;
 
 public interface BoardService {
-	
-	//crud ê¸°ëŠ¥ì˜ ë§¤ì†Œë“œ êµ¬í˜„
-	
-	//ê¸€ë“±ë¡
+	// CRUD ±â´ÉÀÇ ¸Ş¼Òµå ±¸Çö
+	// ±Û µî·Ï
 	void insertBoard(BoardVO vo);
-	
-	//ê¸€ ìˆ˜ì •
-	void updateBoard(BoardVO vo);
-	
-	//ê¸€ ì‚­ì œ
-	void deleteBoard(BoardVO vo);
-	
-	//ê¸€ ìƒì„¸ ì¡°íšŒ
-	BoardVO getBoard(BoardVO vo);
-	
-	//ê¸€ ëª©ë¡ ì¡°íšŒ
-	List<BoardVO> getBoardList(BoardVO vo);
 
+	// ±Û ¼öÁ¤
+	void updateBoard(BoardVO vo);
+
+	// ±Û »èÁ¦
+	void deleteBoard(BoardVO vo);
+
+	// ±Û »ó¼¼ Á¶È¸
+	BoardVO getBoard(BoardVO vo);
+
+	// ±Û ¸ñ·Ï Á¶È¸
+	List<BoardVO> getBoardList(BoardVO vo);
 }

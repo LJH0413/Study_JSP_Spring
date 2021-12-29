@@ -7,21 +7,18 @@ import org.springframework.stereotype.Service;
 
 import com.springbook.biz.board.BoardService;
 import com.springbook.biz.board.BoardVO;
-import com.springbook.biz.common.Log4jAdvice;
-import com.springbook.biz.common.LogAdvice;
 
 @Service("boardService")
-public class BoardServiceImpl implements BoardService{
-	
+public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardDAOSpring boardDAO;
-	
-	
+
 	public void insertBoard(BoardVO vo) {
-		if(vo.getSeq() == 0) {
-			throw new IllegalArgumentException("0ë²ˆ ê¸€ì€ ë“±ë¡ í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
-		}
-		boardDAO.inserBoard(vo);
+//		if (vo.getSeq() == 0) {
+//			throw new IllegalArgumentException("0¹ø ±ÛÀº µî·ÏÇÒ ¼ö ¾ø½À´Ï´Ù.");
+//		}
+		boardDAO.insertBoard(vo); // 100¹ø ±Û µî·Ï ¼º°ø
+		boardDAO.insertBoard(vo); // Exception ¹ß»ı
 	}
 
 	public void updateBoard(BoardVO vo) {
@@ -39,5 +36,4 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardVO> getBoardList(BoardVO vo) {
 		return boardDAO.getBoardList(vo);
 	}
-
 }

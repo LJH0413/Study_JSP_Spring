@@ -1,8 +1,7 @@
-<%@ page contentType="text/html; charset=EUC-KR" %> 
-<%@ page language="java" import="java.sql.*,java.text.*" %> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.sql.*,java.text.*" %>
 <% request.setCharacterEncoding("euc-kr"); %>
 <HTML>
-<HEAD><TITLE>¼îÇÎ ¸ñ·Ï </TITLE>
+<HEAD><TITLE>ì‡¼í•‘ ëª©ë¡ </TITLE>
 <SCRIPT language="javascript">
  function setvalue(f) {
   f.quantity.value=0;
@@ -12,35 +11,35 @@
 </HEAD>
 <BODY>
 
-<!-- DB ¿¬°á ¼³Á¤ --> 
+<!-- DB ì—°ê²° ì„¤ì • --> 
 <%@ include file = "dbconn_mysql.jsp" %>
 
 
 <P align=center>
- <FONT color=#0000ff face=±¼¸² size=+1>
-  <STRONG> ¼îÇÎ ¸ñ·Ï </STRONG>
+ <FONT color=#0000ff face=êµ´ë¦¼ size=+1>
+  <STRONG> ì‡¼í•‘ ëª©ë¡ </STRONG>
  </FONT>
 </P> 
 <CENTER>
 <TABLE border=0 width=600 cellpadding=4 cellspacing=4 style="font-size:10pt">
  <TR>
   <TH width=5% bgcolor=#003399>
-   <FONT color=black face=±¼¸²><NOBR>¹øÈ£</NOBR></FONT>
+   <FONT color=black face=êµ´ë¦¼><NOBR>ë²ˆí˜¸</NOBR></FONT>
   </TH>
   <TH width=20% bgcolor=#003399>
-   <FONT color=black face=±¼¸²><NOBR>»óÇ°¸í</NOBR></FONT>
+   <FONT color=black face=êµ´ë¦¼><NOBR>ìƒí’ˆëª…</NOBR></FONT>
   </TH>
   <TH width=20% bgcolor=#003399>
-   <FONT color=black face=±¼¸²><NOBR>Á¦Á¶¿ø</NOBR></FONT>
+   <FONT color=black face=êµ´ë¦¼><NOBR>ì œì¡°ì›</NOBR></FONT>
   </TH>
   <TH width=25% bgcolor=#003399>
-   <FONT color=black face=±¼¸²><NOBR>ÁÖ¹® ¼ö·®</NOBR></FONT>
+   <FONT color=black face=êµ´ë¦¼><NOBR>ì£¼ë¬¸ ìˆ˜ëŸ‰</NOBR></FONT>
   </TH>
   <TH width=10% bgcolor=#003399>
-   <FONT color=black face=±¼¸²><NOBR>ÆÇ¸Å°¡(¿ø)</NOBR></FONT>
+   <FONT color=black face=êµ´ë¦¼><NOBR>íŒë§¤ê°€(ì›)</NOBR></FONT>
   </TH>
   <TH width=15% bgcolor=#003399>
-   <FONT color=black face=±¼¸²><NOBR>ÇÕ°è(¼ö·®*ÆÇ¸Å°¡)</NOBR></FONT>
+   <FONT color=black face=êµ´ë¦¼><NOBR>í•©ê³„(ìˆ˜ëŸ‰*íŒë§¤ê°€)</NOBR></FONT>
   </TH>
  </TR>
 <%
@@ -107,13 +106,13 @@
     out.println("<TD width=15% bgcolor=#eeeeee>");
     out.println(rs.getString("sname")+ "</TD>");
     out.println("<TD width=30% bgcolor=#eeeeee>");
-    out.println("<INPUT type=text name=quantity size=2 value="+qty+">°³<br/>");
+    out.println("<INPUT type=text name=quantity size=2 value="+qty+">ê°œ<br/>");
     out.println("<INPUT type=hidden name=id value="+id+">");
     out.println("<INPUT type=hidden name=go value="+where+">");
     out.println("<INPUT type=hidden name=cat value="+ca+">");
     out.println("<INPUT type=hidden name=pname value="+pn+">");
-    out.println("<INPUT type=submit value=¼öÁ¤>");
-    out.println("<INPUT type=button value=»èÁ¦ onClick=\"setvalue(this.form);\">");
+    out.println("<INPUT type=submit value=ìˆ˜ì •>");
+    out.println("<INPUT type=button value=ì‚­ì œ onClick=\"setvalue(this.form);\">");
     out.println("</TD>");
     out.println("<TD width=10% bgcolor=#eeeeee align=right>");
     out.println(pricestr+ "</TD>");
@@ -125,17 +124,17 @@
  
   out.println("<TR>");
   out.println("<TD width=10% align=right colspan=6>");
-  out.println("ÁÖ¹® »óÇ° :"+count+ "Ç°¸ñ&nbsp;&nbsp;");  
-  out.println("ÁÖ¹® ÃÑ ÇÕ°è ±İ¾× :"+nf.format(total)+ "¿ø</TD>");     
+  out.println("ì£¼ë¬¸ ìƒí’ˆ :"+count+ "í’ˆëª©&nbsp;&nbsp;");  
+  out.println("ì£¼ë¬¸ ì´ í•©ê³„ ê¸ˆì•¡ :"+nf.format(total)+ "ì›</TD>");     
   out.println("</TR>");   
   out.println("</TABLE>");
   st.close();
   conn.close();
  
   out.print("[<A href=\"shop_list.jsp?go="+ where);
-  out.print("&cat="+ ca +"&pname="+pn+"\">°è¼Ó ¼îÇÎÇÏ±â</A>]");
+  out.print("&cat="+ ca +"&pname="+pn+"\">ê³„ì† ì‡¼í•‘í•˜ê¸°</A>]");
  
-  out.println("[<A href=\"order.jsp?total="+total+"&count="+count+"\">ÁÖ¹®ÇÏ±â</A>]");
+  out.println("[<A href=\"order.jsp?total="+total+"&count="+count+"\">ì£¼ë¬¸í•˜ê¸°</A>]");
  } catch (SQLException e) {
   out.println(e);
  }

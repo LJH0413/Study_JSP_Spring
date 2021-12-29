@@ -1,220 +1,59 @@
 package com.springbook.biz.board.impl;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 
 import com.springbook.biz.board.BoardVO;
-import com.springbook.biz.common.JDBCUtil;
 
-//DAO (data access object
+//DAO(Data Access Object)
 @Repository
-public class BoardDAOSpring extends JdbcDaoSupport {
-
-	//jdbc Í¥ÄÎ†® Î≥ÄÏàò = Ïª§ÎÇµÏÖò Ï¥àÍ∏∞Ìôî
-	private Connection conn = null;
-	private PreparedStatement stmt = null;
-	private ResultSet rs = null;
-
-	/*--------------------------------------------------------------------------------------------------------*/
-
-	//sql Î™ÖÎ†πÏñ¥
-	private final String BOARD_INSERT = 
-			"insert into board(seq, title, writer, content) values((select nvl(max(seq), 0)+1 from board), ?, ?, ?)";
-
-	private final String BOARD_UPDATE = 
-			"update board set title = ?, content = ?, where seq = ?";
-
-	private final String BOARD_DELETE =
-			"delete board where seq = ?";
-
-	private final String BOARD_GET = 
-			"select * from board where seq = ?";
-
-	private final String BOARD_LIST = 
-			"select * from board order by seq desc";
-
-	/*--------------------------------------------------------------------------------------------------------*/
-	
+public class BoardDAOSpring {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
+	
+	// SQL ∏Ì∑…æÓµÈ
+//	private final String BOARD_INSERT = "insert into board(seq, title, writer, content) values((select nvl(max(seq), 0)+1 from board),?,?,?)";
+	private final String BOARD_INSERT = "insert into board(seq, title, writer, content) values(?, ?, ?, ?)";
+	private final String BOARD_UPDATE = "update board set title=?, content=? where seq=?";
+	private final String BOARD_DELETE = "delete board where seq=?";
+	private final String BOARD_GET = "select * from board where seq=?";
+	private final String BOARD_LIST = "select * from board order by seq desc";
 
-	//crud (create read update delete)
-	// Í∏Ä Îì±Î°ù	
-	public void inserBoard(BoardVO vo) {
-		System.out.println("===> Spring JDBC process insertBoard() ");
-		jdbcTemplate.update(BOARD_INSERT, vo.getTitle(), vo.getContent(), vo.getSeq());
-		
-//		System.out.println("===> JDBC process insertBoard() ");
-//		try {
-//			//db Ïª§ÎÑ•ÏÖò			
-//			conn = JDBCUtil.getConnection();
-//			stmt = conn.prepareStatement(BOARD_INSERT);
-//			stmt.setString(1, vo.getTitle());
-//			stmt.setString(2, vo.getWriter());
-//			stmt.setString(3, vo.getContent());
-//
-//			//ÏøºÎ¶¨ Ï†ÄÏû• (update delete insert ) ÌïÑÏöî
-//			stmt.executeUpdate();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			//ÏøºÎ¶¨ Ï¢ÖÎ£å
-//			JDBCUtil.close(stmt, conn);
-//		}
-		
+	// CRUD ±‚¥…¿« ∏ﬁº“µÂ ±∏«ˆ
+	// ±€ µÓ∑œ
+	public void insertBoard(BoardVO vo) {
+		System.out.println("===> Spring JDBC∑Œ insertBoard() ±‚¥… √≥∏Æ");
+		jdbcTemplate.update(BOARD_INSERT, vo.getSeq(), vo.getTitle(), vo.getWriter(), vo.getContent());
 	}
 
-	/*--------------------------------------------------------------------------------------------------------*/
-
-	//Í∏Ä ÏàòÏ†ï
+	// ±€ ºˆ¡§
 	public void updateBoard(BoardVO vo) {
-		System.out.println("===> Spring JDBC process updateBoard() ");
+		System.out.println("===> Spring JDBC∑Œ updateBoard() ±‚¥… √≥∏Æ");
 		jdbcTemplate.update(BOARD_UPDATE, vo.getTitle(), vo.getContent(), vo.getSeq());
-//		System.out.println("===> JDBC updateBoard()");
-//
-//		try {
-//			conn = JDBCUtil.getConnection();
-//
-//			stmt = conn.prepareStatement(BOARD_UPDATE);
-//			stmt.setString(1, vo.getTitle());
-//			stmt.setString(2, vo.getContent());
-//			stmt.setInt(3, vo.getSeq());
-//
-//			stmt.executeUpdate();
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			JDBCUtil.close(stmt, conn);
-//
-//		}
 	}
 
-	/*--------------------------------------------------------------------------------------------------------*/
-
-	//Í∏Ä ÏÇ≠Ï†ú
+	// ±€ ªË¡¶
 	public void deleteBoard(BoardVO vo) {
-		System.out.println("===> Spring JDBC process deleteBoard() ");
+		System.out.println("===> Spring JDBC∑Œ deleteBoard() ±‚¥… √≥∏Æ");
 		jdbcTemplate.update(BOARD_DELETE, vo.getSeq());
-		
-//		System.out.println("===> JDBC deleteBoard()");
-//
-//		try {
-//			conn = JDBCUtil.getConnection();
-//
-//			stmt = conn.prepareStatement(BOARD_DELETE);
-//			stmt.setInt(1, vo.getSeq());
-//
-//			stmt.executeUpdate();
-//
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			JDBCUtil.close(stmt, conn);
-//		}
 	}
 
-	/*--------------------------------------------------------------------------------------------------------*/
-
-	//Í∏Ä ÏÉÅÏÑ∏ Ï°∞Ìöå
-
+	// ±€ ªÛºº ¡∂»∏
 	public BoardVO getBoard(BoardVO vo) {
-		
-		System.out.println("===> Spring JDBC process getBoard() ");
-		Object[] args = {vo.getSeq()};
+		System.out.println("===> Spring JDBC∑Œ getBoard() ±‚¥… √≥∏Æ");
+		Object[] args = { vo.getSeq() };
 		return jdbcTemplate.queryForObject(BOARD_GET, args, new BoardRowMapper());
-
-//		System.out.println("===> JDBC getBoard()");
-//
-//		BoardVO board = null;
-//
-//		try {
-//			conn = JDBCUtil.getConnection();
-//
-//			stmt = conn.prepareStatement(BOARD_GET);
-//
-//			stmt.setInt(1, vo.getSeq());
-//
-//			if(rs.next()) {
-//				board = new BoardVO();
-//				board.setSeq(rs.getInt("SEQ"));
-//				board.setTitle(rs.getString("TITLE"));
-//				board.setWriter(rs.getString("WRITER"));
-//				board.setContent(rs.getString("CONTENT"));
-//				board.setRegDate(rs.getDate("REGDATE"));
-//				board.setCnt(rs.getInt("CNT"));
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			JDBCUtil.close(rs, stmt, conn);
-//		}
-//		return board;
 	}
-	
-	/*--------------------------------------------------------------------------------------------------------*/
-	
-	// Í∏Ä Î™©Î°ù Ï°∞Ìöå
+
+	// ±€ ∏Ò∑œ ¡∂»∏
 	public List<BoardVO> getBoardList(BoardVO vo) {
-		
-		System.out.println("===> Spring JDBC process getBoardList() ");
+		System.out.println("===> Spring JDBC∑Œ getBoardList() ±‚¥… √≥∏Æ");
 		return jdbcTemplate.query(BOARD_LIST, new BoardRowMapper());
 	}
-		
-//		System.out.println("===> JDBC getBoard()");
-//		List<BoardVO> boardList = new ArrayList<BoardVO>();
-//		
-//		try {
-//			conn = JDBCUtil.getConnection();
-//			
-//			stmt = conn.prepareStatement(BOARD_LIST);
-//			
-//			rs = stmt.executeQuery();
-//			
-//			while(rs.next()) {
-//				//Í∞ùÏ≤¥ ÏÉùÏÑ±
-//				BoardVO board = new BoardVO();
-//				board.setSeq(rs.getInt("SEQ"));
-//				board.setTitle(rs.getString("TITLE"));
-//				board.setWriter(rs.getString("WRITER"));
-//				board.setContent(rs.getString("CONTENT"));
-//				board.setRegDate(rs.getDate("REGDATE"));
-//				board.setCnt(rs.getInt("CNT"));
-//				boardList.add(board);
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			JDBCUtil.close(stmt, conn);
-//		}
-//		return boardList;
-//		
-//	}
-}
-
-class BoardRowMapper implements RowMapper<BoardVO> {
-	
-	public BoardVO mapRow(ResultSet rs, int rowNum) throws SQLException	{
-		BoardVO board = new BoardVO();
-		board.setSeq(rs.getInt("SEQ"));
-		board.setTitle(rs.getString("TITLE"));
-		board.setWriter(rs.getString("WRITER"));
-		board.setContent(rs.getString("CONTENT"));
-		board.setRegDate(rs.getDate("REGDATE"));
-		board.setCnt(rs.getInt("CNT"));
-		return board;
-		
-	}
-	
 }

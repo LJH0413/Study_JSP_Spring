@@ -9,47 +9,34 @@ import org.springframework.stereotype.Repository;
 import com.springbook.biz.common.JDBCUtil;
 import com.springbook.biz.user.UserVO;
 
+// DAO(Data Access Object)
 @Repository("userDAO")
-public class UserDAO{
-
-	//jdbc ê´€ë ¨ ë³€ìˆ˜ = ì»¤ë‚µì…˜ ì´ˆê¸°í™”
+public class UserDAO {
+	// JDBC °ü·Ã º¯¼ö
 	private Connection conn = null;
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;
-	
-	/*--------------------------------------------------------------------------------------------------------*/
-	
-	//SQL ëª…ë ¹ì–´
+	// SQL ¸í·É¾îµé
 	private final String USER_GET = "select * from users where id=? and password=?";
-	
-	/*--------------------------------------------------------------------------------------------------------*/
-	
-	//crud ê¸°ëŠ¥êµ¬í˜„
-	
-	//íšŒì› ë“±ë¡
+
+	// CRUD ±â´ÉÀÇ ¸Þ¼Òµå ±¸Çö
+	// È¸¿ø µî·Ï
 	public UserVO getUser(UserVO vo) {
-		
 		UserVO user = null;
-		
 		try {
-			System.out.println("===>JDBC getUser()");
-			
+			System.out.println("===> JDBC·Î getUser() ±â´É Ã³¸®");
 			conn = JDBCUtil.getConnection();
-			
 			stmt = conn.prepareStatement(USER_GET);
 			stmt.setString(1, vo.getId());
 			stmt.setString(2, vo.getPassword());
-			
 			rs = stmt.executeQuery();
-			
-			if(rs.next()) {
+			if (rs.next()) {
 				user = new UserVO();
 				user.setId(rs.getString("ID"));
 				user.setPassword(rs.getString("PASSWORD"));
 				user.setName(rs.getString("NAME"));
 				user.setRole(rs.getString("ROLE"));
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -57,7 +44,4 @@ public class UserDAO{
 		}
 		return user;
 	}
-
-
-
 }

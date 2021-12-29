@@ -1,25 +1,15 @@
 package com.springbook.biz.common;
 
-import org.aopalliance.intercept.Joinpoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Service;
 
 @Service
-@Aspect // aspect = pointcut + advice
+@Aspect // Aspect = Pointcut + Advice
 public class LogAdvice {
-	@Pointcut("execution(* com.springbook.biz..*impl.*(..))")
-	public void allPointcut() {}
-	
-	@Before("allPointcut()")
-	public void printLog() {
-		System.out.println("[ê³µí†µë¡œê·¸] ë¹„ì¦ˆë‹ˆìŠ¤ ë¡œì§ ìˆ˜í–‰ ì „ ë™ì‘");
+	@Before("PointcutCommon.allPointcut()")
+	public void printLog(){
+		System.out.println("[°øÅë ·Î±×] ºñÁî´Ï½º ·ÎÁ÷ ¼öÇà Àü µ¿ÀÛ");
 	}
-	//pointcut + before (advice)
-	
-//	@Pointcut("execution(* com.springbook.biz..*impl.get*(..))")
-//	public void getPointcut() {}
-	
-
 }

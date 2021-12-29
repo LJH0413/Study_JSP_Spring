@@ -1,15 +1,15 @@
-<%@ page contentType="text/html; charset=EUC-KR" %> 
-<%@ page language="java" import="java.sql.*,java.util.*,java.text.*" %> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.sql.*,java.util.*,java.text.*"%>
+
 <%@ page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <% request.setCharacterEncoding("euc-kr"); %>
 
-<!-- DB ¿¬°á ¼³Á¤ --> 
+<!-- DB ì—°ê²° ì„¤ì • --> 
 <%@ include file = "dbconn_mysql.jsp" %>
 
 
 <%
- String fileurl= "C:/eclipse-workspace/MVC_M_1/src/main/webapp/shop/upload/";
+ String fileurl= "/Users/junhee/GitHub/Study_JSP_Spring/JSP/MVC_M1_member/src/main/webapp/shop/upload/";
  String saveFolder="upload";
  String encType="euc-kr";
  int Maxsize = 5*1024*1024*1024;
@@ -81,9 +81,9 @@
   cnt = st.executeUpdate(sql);
       
   if (cnt >0) 
-   out.println("»óÇ°À» µî·ÏÇß½À´Ï´Ù.");
+   out.println("ìƒí’ˆì„ ë“±ë¡í–ˆìŠµë‹ˆë‹¤.");
   else  
-   out.println("»óÇ°ÀÌ µî·ÏµÇÁö ¾Ê¾Ò½À´Ï´Ù. ");
+   out.println("ìƒí’ˆì´ ë“±ë¡ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤. ");
  
   st.close();
   conn.close();
@@ -93,5 +93,5 @@
  }
 %>
 <P>
-<A href="product_list.jsp">[»óÇ° ¸ñ·ÏÀ¸·Î]</A> &nbsp;
-<A href="product_write.htm">[»óÇ° ¿Ã¸®´Â °÷À¸·Î]</A>
+<A href="product_list.jsp">[ìƒí’ˆ ëª©ë¡ìœ¼ë¡œ]</A> &nbsp;
+<A href="product_write.html">[ìƒí’ˆ ì˜¬ë¦¬ëŠ” ê³³ìœ¼ë¡œ]</A>

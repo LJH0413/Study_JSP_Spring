@@ -4,22 +4,22 @@
 function check(){
  with(document.msgwrite){
   if(subject.value.length == 0){
-   alert("Á¦¸ñÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä!!");
+   alert("ì œëª©ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”!!");
    subject.focus();
    return false;
   }
   if(name.value.length == 0){
-   alert("ÀÌ¸§À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä!!");
+   alert("ì´ë¦„ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”!!");
    name.focus();
    return false;
   }
   if(password.value.length == 0){
-   alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä!!");
+   alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”!!");
    password.focus();
    return false;
   }
   if(content.value.length == 0){
-   alert("³»¿ëÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä!!");
+   alert("ë‚´ìš©ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”!!");
    content.focus();
    return false;
   }
@@ -38,14 +38,14 @@ function check(){
   <td colspan="2" bgcolor="#1F4F8F" height="1"></td>
  </tr>
  <tr> 
-  <td colspan="2" bgcolor="#DFEDFF" height="20" class="notice">&nbsp;&nbsp;<font size="2">ÀÚ·á ¿Ã¸®±â</font></td>
+  <td colspan="2" bgcolor="#DFEDFF" height="20" class="notice">&nbsp;&nbsp;<font size="2">ìë£Œ ì˜¬ë¦¬ê¸°</font></td>
  </tr>
  <tr> 
   <td colspan="2" bgcolor="#1F4F8F" height="1"></td>
  </tr>
  <tr> 
   <td width="124" height="30" bgcolor="#f4f4f4" style="padding:0 0 0 14"> 
-   <div align="center"><font size="2">ÀÌ ¸§</font></div>
+   <div align="center"><font size="2">ì´ ë¦„</font></div>
   </td>
   <td width="494"  style="padding:0 0 0 10"> 
    <input type=text name=name>
@@ -61,7 +61,7 @@ function check(){
  </tr>
  <tr> 
   <td width="124"  bgcolor="#f4f4f4" style="padding:0 0 0 14"> 
-   <div align="center"><font size="2">Á¦ ¸ñ</font></div>
+   <div align="center"><font size="2">ì œ ëª©</font></div>
   </td>
   <td width="494" style="padding:0 0 0 10" height="25"> 
    <input type=text name=subject size="60" maxlength="60">
@@ -69,7 +69,7 @@ function check(){
  </tr>
  <tr> 
   <td width="124" height="162" bgcolor="#f4f4f4" style="padding:7 0 0 14" valign="top"> 
-   <div align="center"><font size="2">³» ¿ë</font></div>
+   <div align="center"><font size="2">ë‚´ ìš©</font></div>
   </td>
   <td width="494" valign="top"  style="padding:5 0 5 10"> 
    <textarea cols="65" rows="10" name=content maxlength="2000"></textarea>
@@ -77,7 +77,7 @@ function check(){
  </tr>
  <tr>
   <td width="124"  bgcolor="#f4f4f4" style="padding:0 0 0 14">
-   <div align="center">Ã·ºÎÆÄÀÏ</div>
+   <div align="center">ì²¨ë¶€íŒŒì¼</div>
   </td>
   <td width="494" style="padding:5 0 5 10" height="25">
    <input type="file" name="file" size=30>
@@ -85,11 +85,11 @@ function check(){
  </tr>
  <tr> 
   <td width="124"  bgcolor="#f4f4f4" style="padding:0 0 0 14"> 
-   <div align="center"><font size="2">¾Ï È£</font></div>
+   <div align="center"><font size="2">ì•”í˜¸</font></div>
   </td>
   <td width="494" style="padding:5 0 5 10" height="25"> 
    <input type=password name=password>
-   <br> (ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¸é ¼öÁ¤ ¶Ç´Â »èÁ¦°¡ °¡´ÉÇÕ´Ï´Ù.) </td>
+   <br> (ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ë©´ ìˆ˜ì • ë˜ëŠ” ì‚­ì œê°€ ê°€ëŠ¥í•©ë‹ˆë‹¤.) </td>
  </tr>
  <tr> 
   <td colspan="2" height="1" class='button'></td>

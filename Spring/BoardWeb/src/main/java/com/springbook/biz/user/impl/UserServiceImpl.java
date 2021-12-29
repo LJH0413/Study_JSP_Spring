@@ -7,11 +7,9 @@ import com.springbook.biz.user.UserService;
 import com.springbook.biz.user.UserVO;
 
 @Service("userService")
-public class UserServiceImpl implements UserService{
-	
+public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDAO userDAO;
-
 
 	public void setUserDAO(UserDAO userDAO) {
 		this.userDAO = userDAO;
@@ -20,7 +18,4 @@ public class UserServiceImpl implements UserService{
 	public UserVO getUser(UserVO vo) {
 		return userDAO.getUser(vo);
 	}
-	
-	
-
 }

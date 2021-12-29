@@ -1,15 +1,15 @@
-<%@ page contentType="text/html;charset=EUC-KR" %> 
-<%@ page language="java" import="java.sql.*,java.util.*,java.text.*" %> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.sql.*,java.util.*,java.text.*" %>
+
 <% request.setCharacterEncoding("euc-kr"); %>
 <HTML>
-<HEAD><TITLE>ÁÖ¹®¼­ ³»¿ª</TITLE></HEAD>
+<HEAD><TITLE>ì£¼ë¬¸ì„œ ë‚´ì—­</TITLE></HEAD>
 <BODY>
 
-<!-- DB ¿¬°á ¼³Á¤ --> 
+<!-- DB ì—°ê²° ì„¤ì • --> 
 <%@ include file = "dbconn_mysql.jsp" %>
 
 
-[<A href="shop_list.jsp">¼îÇÎ ¸ñ·ÏÀ¸·Î </A>]
+[<A href="shop_list.jsp">ì‡¼í•‘ ëª©ë¡ìœ¼ë¡œ </A>]
 <%
  String sql=null;
  //Connection con= null;
@@ -42,7 +42,7 @@
   rs1 = st1.executeQuery(sql);
 
   if (!(rs1.next())) 
-   out.println("ÇØ´ç ³»¿ëÀÌ ¾ø½À´Ï´Ù");
+   out.println("í•´ë‹¹ ë‚´ìš©ì´ ì—†ìŠµë‹ˆë‹¤");
   else {
    do {
     totalstr =nf.format(rs1.getLong("total"));
@@ -50,22 +50,22 @@
     id=rs1.getLong("id");
     out.println("<TABLE width=500 border=0 >");
     out.println("<TR><TH colspan=2 bgcolor=003399>");
-    out.println("<FONT color=white>ÁÖ¹® ³»¿ª¼­</FONT></TH></TR>");
+    out.println("<FONT color=white>ì£¼ë¬¸ ë‚´ì—­ì„œ</FONT></TH></TR>");
     out.println("<TR><TD width=20% bgcolor=eeeeee>");
-    out.println("ÁÖ¹® ¹øÈ£</TD>");
+    out.println("ì£¼ë¬¸ ë²ˆí˜¸</TD>");
     out.println("<TD bgcolor=eeeeee>"+id+"</TD></TR>");
     out.println("<TR><TD width=20% bgcolor=eeeeee>");
-    out.println("ÁÖ¹® ³¯Â¥</TD>");
+    out.println("ì£¼ë¬¸ ë‚ ì§œ</TD>");
     out.println("<TD bgcolor=eeeeee>"+rs1.getString("orderdate")+"</TD></TR>");
-    out.println("<TR><TD bgcolor=eeeeee>°í°´ ÀÌ¸§</TD>");
+    out.println("<TR><TD bgcolor=eeeeee>ê³ ê° ì´ë¦„</TD>");
     out.println("<TD bgcolor=eeeeee>"+rs1.getString("name")+"</TD></TR>");
-    out.println("<TR><TD bgcolor=eeeeee>°áÁ¦ À¯Çü</TD>");
+    out.println("<TR><TD bgcolor=eeeeee>ê²°ì œ ìœ í˜•</TD>");
     out.println("<TD bgcolor=eeeeee>");
     out.println(rs1.getString("pay")+"("+rs1.getString("cardno")+")");
     out.println("</TD></TR>"); 
-    out.println("<TR><TD bgcolor=eeeeee>¹è´Ş ÁÖ¼Ò</TD>");
+    out.println("<TR><TD bgcolor=eeeeee>ë°°ë‹¬ ì£¼ì†Œ</TD>");
     out.println("<TD bgcolor=eeeeee>"+rs1.getString("addr")+"</TD></TR>");
-    out.println("<TR><TD bgcolor=eeeeee>ÀüÈ­ ¹øÈ£</TD>");
+    out.println("<TR><TD bgcolor=eeeeee>ì „í™” ë²ˆí˜¸</TD>");
     out.println("<TD bgcolor=eeeeee>"+rs1.getString("tel"));
     out.println("</TD></TR></TABLE>"); 
 
@@ -75,15 +75,15 @@
     if (rs2.next()) {
      out.println("<TABLE width=500 border=0 >");
      out.println("<TR><TH colspan=2 bgcolor=0033cc>");
-     out.println("<FONT color=white>»óÇ° ÄÚµå</FONT></TH>");
+     out.println("<FONT color=white>ìƒí’ˆ ì½”ë“œ</FONT></TH>");
      out.println("<TH  bgcolor=0033cc>");
-     out.println("<FONT color=white>»óÇ° ÀÌ¸§</FONT></TH>");
+     out.println("<FONT color=white>ìƒí’ˆ ì´ë¦„</FONT></TH>");
      out.println("<TH  bgcolor=0033cc>");
-     out.println("<FONT color=white>ÁÖ¹® ¼ö·®</FONT></TH>");
+     out.println("<FONT color=white>ì£¼ë¬¸ ìˆ˜ëŸ‰</FONT></TH>");
      out.println("<TH  bgcolor=0033cc>");
-     out.println("<FONT  color=white>ÆÇ¸Å°¡°İ</FONT></TH>");
+     out.println("<FONT  color=white>íŒë§¤ê°€ê²©</FONT></TH>");
      out.println("<TH  bgcolor=0033cc>");
-     out.println("<FONT color=white>ÆÇ¸Å°¡°İ*¼ö·®</FONT></TH></TR>");
+     out.println("<FONT color=white>íŒë§¤ê°€ê²©*ìˆ˜ëŸ‰</FONT></TH></TR>");
 
      do {
       qty=rs2.getInt("quantity");
@@ -103,7 +103,7 @@
       out.println(nf.format(price*qty)+"</TD></TR>");
      } while(rs2.next());
      out.println("<TR><TD align=right colspan=6>");
-     out.println("ÁÖ¹® »óÇ° :"+count+"Ç°¸ñ&nbsp;ÇÕ°è±İ¾× :"+totalstr+"¿ø");
+     out.println("ì£¼ë¬¸ ìƒí’ˆ :"+count+"í’ˆëª©&nbsp;í•©ê³„ê¸ˆì•¡ :"+totalstr+"ì›");
      out.println("</TD></TR></TABLE><BR>");
     }
    }while(rs1.next());   

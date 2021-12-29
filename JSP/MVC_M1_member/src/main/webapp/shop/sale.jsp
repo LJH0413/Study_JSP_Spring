@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=EUC-KR" %> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("euc-kr"); %>
 <%
 try {
@@ -28,11 +28,11 @@ try {
  }
  
  session.putValue(id, new Integer(qty));   
- out.println("╧ы╠╦╢о©║ Ёж╬З╫ю╢о╢ы.");
+ out.println("К╟■Й╣╛К▀┬Л≈░ К└ёЛ≈┬Л┼╣К▀┬К▀╓.");
  out.print("[<A href=\"shop_list.jsp?go="+ request.getParameter("go"));
- out.print("&cat="+ ca +"&pname="+pn+"\">╟Х╪с ╪Нгнго╠Б</A>]");
+ out.print("&cat="+ ca +"&pname="+pn+"\">ЙЁ└Л├█ Л┤╪М∙▒М∙≤Й╦╟</A>]");
  out.print("[<A href=\"sale_list.jsp?go="+ request.getParameter("go"));
- out.print("&cat="+ ca +"&pname="+pn+"\">юЕ╧ы╠╦╢о ╨╦╠Б</A>]");
+ out.print("&cat="+ ca +"&pname="+pn+"\">Л·╔К╟■Й╣╛К▀┬ КЁ╢Й╦╟</A>]");
  
 } catch (Exception e) {
  out.println(e);

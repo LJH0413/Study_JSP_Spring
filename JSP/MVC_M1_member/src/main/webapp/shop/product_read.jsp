@@ -1,7 +1,7 @@
-<%@ page contentType="text/html; charset=euc-kr" %> 
-<%@ page language="java" import="java.sql.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.sql.*"%>
+
 <HTML>
-<HEAD><TITLE>»óÇ° ¼³¸í(ÀÌ¹ÌÁö) º¸±â</TITLE>
+<HEAD><TITLE>ìƒí’ˆ ì„¤ëª…(ì´ë¯¸ì§€) ë³´ê¸°</TITLE>
 <SCRIPT language="javascript">
  function view(temp) {
   filename = "http://localhost:8181/MVC_M_1/shop/image/" + temp;
@@ -11,7 +11,7 @@
 </HEAD>
 <BODY>
 
-<!-- DB ¿¬°á ¼³Á¤ --> 
+<!-- DB ì—°ê²° ì„¤ì • --> 
 <%@ include file = "dbconn_mysql.jsp" %>
 
 
@@ -37,11 +37,11 @@
  
  long id = Long.parseLong(request.getParameter("id"));
  
- String url = "http://localhost:8181/MVC_M_1/shop/upload/";
+ String url = "http://localhost:8080/MVC_M_1/shop/upload/";
  String small=null;
  
  out.print("[<A href=\"product_list.jsp?go="+ request.getParameter("go"));
- out.print("&cat="+ ca +"&pname="+pn+"\">»óÇ° ¸ñ·ÏÀ¸·Î</A>]");
+ out.print("&cat="+ ca +"&pname="+pn+"\">ìƒí’ˆ ëª©ë¡ìœ¼ë¡œ</A>]");
  
 
  try {
@@ -49,7 +49,7 @@
   sql = "select * from product where id="+id;
   rs = st.executeQuery(sql);
   if (!(rs.next()))  {
-   out.println("ÇØ´ç ³»¿ëÀÌ ¾ø½À´Ï´Ù");
+   out.println("í•´ë‹¹ ë‚´ìš©ì´ ì—†ìŠµë‹ˆë‹¤");
   } else {
    small=url+rs.getString("small");
    
@@ -61,21 +61,21 @@
  
    out.println("<A href=JavaScript:view(\""+rs.getString("large")+"\")>"); 
    out.println("<IMG width=100 height=100 src="+small+">");
-   out.println("<BR>È®´ë</A></TH>");
+   out.println("<BR>í™•ëŒ€</A></TH>");
    out.println("<TH bgcolor=#003399>");
-   out.println("<FONT face=±¼¸² color=white>");
+   out.println("<FONT face=êµ´ë¦¼ color=white>");
    out.println(rs.getString("pname")+"("+rs.getLong("id")+")");
-   out.println("---ÀÛ¼ºÀÚ:"+rs.getString("wname"));
+   out.println("---ì‘ì„±ì:"+rs.getString("wname"));
    out.println("</FONT></TH></TR>");  
    out.println("<TR>");
    out.println("<TD>");
-   out.println("<U>»ó¼¼ ¼³¸í :</U><BR>");
+   out.println("<U>ìƒì„¸ ì„¤ëª… :</U><BR>");
    out.println(rs.getString("description") );
    out.println("</TD></TR>"); 
    out.println("<TR><TD align=right>");   
-   out.println("Á¦Á¶(°ø±Ş)¿ø:"+rs.getString("sname")+"<BR>");
-   out.println("½ÃÁß°¡:<STRIKE>"+rs.getString("price")+"</STRIKE>¿ø");
-   out.println("ÆÇ¸Å°¡:"+rs.getString("downprice")+"¿ø");
+   out.println("ì œì¡°(ê³µê¸‰)ì›:"+rs.getString("sname")+"<BR>");
+   out.println("ì‹œì¤‘ê°€:<STRIKE>"+rs.getString("price")+"</STRIKE>ì›");
+   out.println("íŒë§¤ê°€:"+rs.getString("downprice")+"ì›");
    out.println("</TD></TR>");  
    out.println("</TABLE>");
   }

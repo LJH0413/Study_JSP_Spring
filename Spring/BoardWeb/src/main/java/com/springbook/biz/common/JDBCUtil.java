@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class JDBCUtil {
-
 	public static Connection getConnection() {
 		try {
 			Class.forName("org.h2.Driver");
@@ -16,24 +15,22 @@ public class JDBCUtil {
 		}
 		return null;
 	}
-	//connection getConnection
 
 	public static void close(PreparedStatement stmt, Connection conn) {
-		if(stmt != null) {
+		if (stmt != null) {
 			try {
-				if(!stmt.isClosed()) stmt.close();
-				//stmt 쿼리 선택이 닫혀 있지 않으면 닫기				
+				if (!stmt.isClosed())
+					stmt.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
 				stmt = null;
 			}
 		}
-
-		if(conn != null) {
+		if (conn != null) {
 			try {
-				if(!conn.isClosed()) conn.close();
-				//conn 닫기
+				if (!conn.isClosed())
+					conn.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
@@ -41,33 +38,32 @@ public class JDBCUtil {
 			}
 		}
 	}
-	//close
 
 	public static void close(ResultSet rs, PreparedStatement stmt, Connection conn) {
-		if(rs != null) {
+		if (rs != null) {
 			try {
-				if(!rs.isClosed()) rs.close();
+				if (!rs.isClosed())
+					rs.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
 				rs = null;
 			}
 		}
-
-		if(stmt != null) {
+		if (stmt != null) {
 			try {
-				if(!stmt.isClosed()) stmt.close();
+				if (!stmt.isClosed())
+					stmt.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
 				stmt = null;
 			}
 		}
-
-
-		if(conn != null) {
+		if (conn != null) {
 			try {
-				if(!conn.isClosed()) conn.close();
+				if (!conn.isClosed())
+					conn.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
@@ -75,5 +71,4 @@ public class JDBCUtil {
 			}
 		}
 	}
-
 }

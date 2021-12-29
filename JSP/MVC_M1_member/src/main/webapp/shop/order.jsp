@@ -1,5 +1,5 @@
-<%@ page contentType="text/html;charset=EUC-KR" %>  
-<%@ page language="java" import="java.text.*" %> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.text.*" %>
+
 <% request.setCharacterEncoding("euc-kr"); %> 
 <% 
 
@@ -25,7 +25,7 @@
   }
 
   if (blank==true) 
-   alert("��� �׸��� �Է��ϼž� �մϴ�.");
+   alert("모든 항목을 입력하셔야 합니다.");
   else
    f.submit();
  }
@@ -33,17 +33,17 @@
 </HEAD>
 <BODY>
 <P>
-[<A href= "sale_list.jsp">��ٱ��� �ٽ� ����</A>] 
+[<A href= "sale_list.jsp">장바구니 다시 보기</A>] 
 <FORM method=post action="order_save.jsp">
 <TABLE border=0 width=400 >
  <TR>
   <TH bgcolor=#003399 colspan=2>
-   <FONT size=+1 color=white> �ֹ��� �ۼ��ϱ�</FONT>
+   <FONT size=+1 color=white> 주문서 작성하기</FONT>
   </TH>
  </TR>
  <TR>
   <TH width=30% bgcolor=#0033cc>
-   <FONT size=-1 color=white>�̸�</FONT>
+   <FONT size=-1 color=white>이름</FONT>
   </TH>
   <TD bgcolor=#eeeeee>
    <INPUT type=text name=wname size=30>
@@ -51,18 +51,18 @@
  </TR>
  <TR>
   <TH width=30% bgcolor=#0033cc>
-   <FONT size=-1 color=white>���� ����</FONT>
+   <FONT size=-1 color=white>결제 유형</FONT>
   </TH>
   <TD bgcolor=#eeeeee>
    <FONT size=-1>
-    <INPUT type=radio name=pay value="card">ī��
-    <INPUT type=radio name=pay value="cash">�¶��� �Ա�
+    <INPUT type=radio name=pay value="card">카드
+    <INPUT type=radio name=pay value="cash">온라인 입금
    </FONT>
   </TD>
  </TR>
  <TR>
   <TH width=30% bgcolor=#0033cc>
-   <FONT size=-1 color=white>ī�� ��ȣ</FONT>
+   <FONT size=-1 color=white>카드 번호</FONT>
   </TH>
   <TD bgcolor=#eeeeee>
    <INPUT type=text name=number size=30>
@@ -70,7 +70,7 @@
  </TR>
  <TR>
   <TH width=30% bgcolor=#0033cc>
-   <FONT size=-1 color=white>��� �ּ�</FONT>
+   <FONT size=-1 color=white>배달 주소</FONT>
   </TH>
   <TD bgcolor=#eeeeee>
    <INPUT type=text name=addr size=30>
@@ -78,7 +78,7 @@
  </TR>
  <TR>
   <TH width=30% bgcolor=#0033cc>
-   <FONT size=-1 color=white>��ȭ��ȣ</FONT>
+   <FONT size=-1 color=white>전화번호</FONT>
   </TH>
   <TD bgcolor=#eeeeee>
    <INPUT type=text name=tel size=30>
@@ -86,18 +86,18 @@
  </TR>
  <TR>
   <TH width=30% bgcolor=#0033cc>
-   <FONT size=-1 color=white>�ֹ� �� �ݾ�</FONT>
+   <FONT size=-1 color=white>주문 총 금액</FONT>
   </TH>
   <TD bgcolor=#eeeeee>
-   <%=totalstr%>��
+   <%=totalstr%>원
   </TD>
  </TR>
  <TR>
   <TD colspan=2>
    <INPUT type=hidden name=total value=<%=total%>>
    <INPUT type=hidden name=count value=<%=count%>>
-   <INPUT type=button value=" Ȯ�� " onClick="check(this.form)" >
-   <INPUT type=reset value=" �ٽþ��� " >
+   <INPUT type=button value=" 확인 " onClick="check(this.form)" >
+   <INPUT type=reset value=" 다시쓰기 " >
   </TD>
  </TR>
 </TABLE>

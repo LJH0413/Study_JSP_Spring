@@ -1,8 +1,7 @@
-<%@ page contentType="text/html; charset=EUC-KR" %> 
-<%@ page language="java" import="java.sql.*,java.util.*,java.text.*" %> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.sql.*,java.util.*,java.text.*"%>
 <% request.setCharacterEncoding("euc-kr"); %>
 
-<!-- DB ¿¬°á ¼³Á¤ --> 
+<!-- DB ì—°ê²° ì„¤ì • --> 
 <%@ include file = "dbconn_mysql.jsp" %>
 
 
@@ -75,12 +74,12 @@
    }
 
    if (cnt2==count) {
-    out.println("ÁÖ¹®ÀÌ Á¤»óÀûÀ¸·Î Ã³¸®µÇ¾ú½À´Ï´Ù.");
+    out.println("ì£¼ë¬¸ì´ ì •ìƒì ìœ¼ë¡œ ì²˜ë¦¬ë˜ì—ˆìŠµë‹ˆë‹¤.");
     session.invalidate();
-    out.println("[<A href=\"order_list.jsp?id="+id+"\">ÁÖ¹®¼­º¸±â</A>]");
+    out.println("[<A href=\"order_list.jsp?id="+id+"\">ì£¼ë¬¸ì„œë³´ê¸°</A>]");
    } else {
-    out.println("»óÇ°¿¡ ´ëÇÑ ÁÖ¹®ÀÌ Ã³¸®µÇÁö ¸øÇß½À´Ï´Ù.");
-     out.println("[<A href=\"shop_list.jsp\">»óÇ° ¸ñ·ÏÀ¸·Î</A>]");
+    out.println("ìƒí’ˆì— ëŒ€í•œ ì£¼ë¬¸ì´ ì²˜ë¦¬ë˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.");
+     out.println("[<A href=\"shop_list.jsp\">ìƒí’ˆ ëª©ë¡ìœ¼ë¡œ</A>]");
    }  
   }         
   st.close();

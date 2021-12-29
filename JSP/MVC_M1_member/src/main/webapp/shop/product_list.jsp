@@ -1,40 +1,40 @@
-<%@ page contentType="text/html; charset=euc-kr" %> 
-<%@ page language="java" import="java.sql.*,java.util.*,java.text.*" %> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.sql.*,java.util.*,java.text.*"%>
+
 <% request.setCharacterEncoding("euc-kr"); %>
 <HTML>
-<HEAD><TITLE>»óÇ° ¸ñ·Ï </TITLE></HEAD>
+<HEAD><TITLE>ìƒí’ˆ ëª©ë¡ </TITLE></HEAD>
 <BODY>
 
-<!-- DB ¿¬°á ¼³Á¤ --> 
+<!-- DB ì—°ê²° ì„¤ì • --> 
 <%@ include file = "dbconn_mysql.jsp" %>
 
 
 <P align=center>
-<FONT color=#0000ff face=±¼¸² size=+1>
-<STRONG> »óÇ° ¸ñ·Ï </STRONG></FONT></P> 
+<FONT color=#0000ff face=êµ´ë¦¼ size=+1>
+<STRONG> ìƒí’ˆ ëª©ë¡ </STRONG></FONT></P> 
 
 <FORM method=post name=search action="product_list.jsp">
 <TABLE border=0 width=95%>
  <TR>
   <TD align=right>
-   <FONT size=-1>»óÇ°¸íÀ¸·Î Ã£±â</FONT>
+   <FONT size=-1>ìƒí’ˆëª…ìœ¼ë¡œ ì°¾ê¸°</FONT>
    <INPUT type=text name=pname>
-   <INPUT type=submit value="°Ë»ö">
+   <INPUT type=submit value="ê²€ìƒ‰">
   </TD>
  </TR>
  <TR>
   <TH>
    <FONT size=-1>
-    [<A href="main.htm">¸ÞÀÎÀ¸·Î</A>]
-    <A href="product_list.jsp">ÀüÃ¼</A>-
-    <A href="product_list.jsp?cat=11">°¡±¸</A>-
-    <A href="product_list.jsp?cat=22">Àü±â/ÀüÀÚ</A>-
-    <A href="product_list.jsp?cat=33">ºÎ¾ý¿ëÇ°</A>-
-    <A href="product_list.jsp?cat=44">ÀÇ·ù</A>-
-    <A href="product_list.jsp?cat=55">º¸¼® ¹× ¾Ç¼¼»ç¸®</A>-
-    <A href="product_list.jsp?cat=66">Çï½º ±â±¸</A>-
-    <A href="product_list.jsp?cat=77">ÄÄÇ»ÅÍ °ü·Ã</A>-
-    <A href="product_list.jsp?cat=88">±âÅ¸</A>
+    [<A href="main.htm">ë©”ì¸ìœ¼ë¡œ</A>]
+    <A href="product_list.jsp">ì „ì²´</A>-
+    <A href="product_list.jsp?cat=11">ê°€êµ¬</A>-
+    <A href="product_list.jsp?cat=22">ì „ê¸°/ì „ìž</A>-
+    <A href="product_list.jsp?cat=33">ë¶€ì—Œìš©í’ˆ</A>-
+    <A href="product_list.jsp?cat=44">ì˜ë¥˜</A>-
+    <A href="product_list.jsp?cat=55">ë³´ì„ ë° ì•…ì„¸ì‚¬ë¦¬</A>-
+    <A href="product_list.jsp?cat=66">í—¬ìŠ¤ ê¸°êµ¬</A>-
+    <A href="product_list.jsp?cat=77">ì»´í“¨í„° ê´€ë ¨</A>-
+    <A href="product_list.jsp?cat=88">ê¸°íƒ€</A>
    </FONT>
   </TH>
  </TR>
@@ -45,43 +45,43 @@
 <TABLE border=0 width=95% cellpadding=4 cellspacing=4 style="font-size:10pt">
  <TR>
   <TH width=5% bgcolor=#DFEDFF>
-   <FONT color=black face=±¼¸²>
-    <NOBR>¹øÈ£</NOBR>
+   <FONT color=black face=êµ´ë¦¼>
+    <NOBR>ë²ˆí˜¸</NOBR>
    </FONT>
   </TH>
   <TH width=25% bgcolor=#DFEDFF>
-   <FONT color=black face=±¼¸²>
-    <NOBR>»óÇ°¸í</NOBR>
+   <FONT color=black face=êµ´ë¦¼>
+    <NOBR>ìƒí’ˆëª…</NOBR>
    </FONT>
   </TH>
   <TH width=10% bgcolor=#DFEDFF>
-   <FONT color=black face=±¼¸²>
-    <NOBR>ÄÚµå¹øÈ£</NOBR>
+   <FONT color=black face=êµ´ë¦¼>
+    <NOBR>ì½”ë“œë²ˆí˜¸</NOBR>
    </FONT>
   </TH>
   <TH width=15% bgcolor=#DFEDFF>
-   <FONT color=black face=±¼¸²>
-    <NOBR>Á¦Á¶¿ø</NOBR>
+   <FONT color=black face=êµ´ë¦¼>
+    <NOBR>ì œì¡°ì›</NOBR>
    </FONT>
   </TH>
   <TH width=10% bgcolor=#DFEDFF>
-   <FONT color=black face=±¼¸²>
-    <NOBR>ÆÇ¸Å½ÃÀÛÀÏ</NOBR>
+   <FONT color=black face=êµ´ë¦¼>
+    <NOBR>íŒë§¤ì‹œìž‘ì¼</NOBR>
    </FONT>
   </TH>
   <TH width=10% bgcolor=#DFEDFF>
-   <FONT color=black face=±¼¸²>
-    <NOBR>ÆÇ¸Å°¡(¿ø)</NOBR>
+   <FONT color=black face=êµ´ë¦¼>
+    <NOBR>íŒë§¤ê°€(ì›)</NOBR>
    </FONT>
   </TH>
   <TH width=10% bgcolor=#DFEDFF>
-   <FONT color=black face=±¼¸²>
-    <NOBR>Àç°í·®</NOBR>
+   <FONT color=black face=êµ´ë¦¼>
+    <NOBR>ìž¬ê³ ëŸ‰</NOBR>
    </FONT>
   </TH>
   <TH width=15% bgcolor=#DFEDFF>
-   <FONT color=black face=±¼¸²>
-    <NOBR>ºÐ·ù</NOBR>
+   <FONT color=black face=êµ´ë¦¼>
+    <NOBR>ë¶„ë¥˜</NOBR>
    </FONT>
   </TH>
  </TR>
@@ -154,7 +154,7 @@
   sql = sql+ cond+  " order by id";
   rs = st.executeQuery(sql);
   if (!(rs.next()))  {
-   out.println("»óÇ°ÀÌ ¾ø½À´Ï´Ù");
+   out.println("ìƒí’ˆì´ ì—†ìŠµë‹ˆë‹¤");
   } else {
    do {
     keyid.addElement(new Long(rs.getLong("id")));
@@ -182,28 +182,28 @@
     downprice=nf.format( ((Integer)dprice.elementAt(j)).intValue() ); 
     switch ( Integer.parseInt((String)cat.elementAt(j)) ) {
      case 11:  
-      category="°¡±¸";
+      category="ê°€êµ¬";
       break;
      case 22:  
-      category="Àü±â/ÀüÀÚ";
+      category="ì „ê¸°/ì „ìž";
       break;
      case 33:  
-      category="ºÎ¾ý¿ëÇ°";
+      category="ë¶€ì—Œìš©í’ˆ";
       break;
      case 44:  
-      category="ÀÇ·ù";
+      category="ì˜ë¥˜";
       break;
      case 55:  
-      category="º¸¼® ¹× ¾Ç¼¼»ç¸®";
+      category="ë³´ì„ ë° ì•…ì„¸ì‚¬ë¦¬";
       break;
      case 66:  
-      category="Çï½º±â±¸";
+      category="í—¬ìŠ¤ê¸°êµ¬";
       break;
      case 77:  
-      category="ÄÄÇ»ÅÍ°ü·Ã";
+      category="ì»´í“¨í„°ê´€ë ¨";
       break;
      case 88:  
-      category="±âÅ¸";
+      category="ê¸°íƒ€";
       break;
      default:
       break;
@@ -240,12 +240,12 @@
 
  if (wheregroup > 1) {
   out.print("[<A href=\"product_list.jsp?gogroup=1"); 
-  out.print("&cat="+ca+"&pname="+pn+"\">Ã³À½</A>]");
+  out.print("&cat="+ca+"&pname="+pn+"\">ì²˜ìŒ</A>]");
   out.print("[<A href=\"product_list.jsp?gogroup="+priorgroup);
-  out.print("&cat="+ca+"&pname="+pn+ "\">ÀÌÀü</A>]");
+  out.print("&cat="+ca+"&pname="+pn+ "\">ì´ì „</A>]");
  } else {
-  out.println("[Ã³À½]") ;
-  out.println("[ÀÌÀü]") ;
+  out.println("[ì²˜ìŒ]") ;
+  out.println("[ì´ì „]") ;
  }
  
  if (totalrows !=0) {  
@@ -260,14 +260,14 @@
  }
  if (wheregroup < totalgroup) {
   out.print("[<A href=\"product_list.jsp?gogroup="+ nextgroup);
-  out.print("&cat="+ca+"&pname="+pn+"\">´ÙÀ½</A>]");
+  out.print("&cat="+ca+"&pname="+pn+"\">ë‹¤ìŒ</A>]");
   out.print("[<A href=\"product_list.jsp?gogroup="+ totalgroup);
-  out.print("&cat="+ca+"&pname="+pn+"\">¸¶Áö¸·</A>]");
+  out.print("&cat="+ca+"&pname="+pn+"\">ë§ˆì§€ë§‰</A>]");
  } else {
-  out.println("[´ÙÀ½]");
-  out.println("[¸¶Áö¸·]");
+  out.println("[ë‹¤ìŒ]");
+  out.println("[ë§ˆì§€ë§‰]");
  }
- out.println ("ÀüÃ¼»óÇ°¼ö :"+totalrows); 
+ out.println ("ì „ì²´ìƒí’ˆìˆ˜ :"+totalrows); 
 %>
 </BODY>
 </HTML>

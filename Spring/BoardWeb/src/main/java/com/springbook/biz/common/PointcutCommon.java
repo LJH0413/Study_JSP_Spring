@@ -5,11 +5,11 @@ import org.aspectj.lang.annotation.Pointcut;
 
 @Aspect
 public class PointcutCommon {
-	
-	@Pointcut("execution(* com.springbook.biz..*impl.*(..))")
-	public void allPointcut() {}
-	
-	@Pointcut("execution(* com.springbook.biz..*impl.get*(..))")
-	public void getPointcut() {}
+	@Pointcut("execution(* com.springbook.biz..*Impl.*(..))")
+	public void allPointcut() {
+	}
 
+	@Pointcut("execution(* com.springbook.biz..*Impl.get*(..))")
+	public void getPointcut() {
+	}
 }

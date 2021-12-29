@@ -1,8 +1,7 @@
-<%@ page contentType="text/html; charset=EUC-KR" %> 
-<%@ page language="java" import="java.sql.*,java.util.*,java.text.*" %> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.sql.*,java.util.*,java.text.*" %>
 <% request.setCharacterEncoding("euc-kr"); %>
 <HTML>
-<HEAD><TITLE>¼îÇÎÇÏ±â </TITLE>
+<HEAD><TITLE>ì‡¼í•‘í•˜ê¸° </TITLE>
 <SCRIPT language="javascript">
  function view(temp) {
   if (temp.length >0) { 
@@ -14,13 +13,13 @@
 </HEAD>
 <BODY>
 
-<!-- DB ¿¬°á ¼³Á¤ --> 
+<!-- DB ì—°ê²° ì„¤ì • --> 
 <%@ include file = "dbconn_mysql.jsp" %>
 
 
 <P align=center>
- <FONT color=#0000ff face=±¼¸² size=3>
-  <STRONG>¼îÇÎÇÏ±â</STRONG>
+ <FONT color=#0000ff face=êµ´ë¦¼ size=3>
+  <STRONG>ì‡¼í•‘í•˜ê¸°</STRONG>
  </FONT>
 </P> 
  
@@ -28,24 +27,24 @@
 <TABLE border=0 width=95%>
  <TR>
   <TH align=right>
-   <FONT size=-1>»óÇ°¸íÀ¸·Î Ã£±â</FONT>
+   <FONT size=-1>ìƒí’ˆëª…ìœ¼ë¡œ ì°¾ê¸°</FONT>
    <INPUT type=text name=pname>
-   <INPUT type=submit value="°Ë»ö"></font>
+   <INPUT type=submit value="ê²€ìƒ‰"></font>
   </TD>
  </TR>
  <TR>
   <TH>
    <FONT size=-1>
-    [<A href="main.htm">¸ŞÀÎÀ¸·Î</A>]
-    <A href="shop_list.jsp">ÀüÃ¼</A>-
-    <A href="shop_list.jsp?cat=11">°¡±¸</A>-
-    <A href="shop_list.jsp?cat=22">Àü±â/ÀüÀÚ</A>-
-    <A href="shop_list.jsp?cat=33">ºÎ¾ı¿ëÇ°</A>-
-    <A href="shop_list.jsp?cat=44">ÀÇ·ù</A>-
-    <A href="shop_list.jsp?cat=55">º¸¼® ¹× ¾Ç¼¼»ç¸®</A>-
-    <A href="shop_list.jsp?cat=66">Çï½º ±â±¸</A>-
-    <A href="shop_list.jsp?cat=77">ÄÄÇ»ÅÍ °ü·Ã</A>-
-    <A href="shop_list.jsp?cat=88">±âÅ¸</A>
+    [<A href="main.htm">ë©”ì¸ìœ¼ë¡œ</A>]
+    <A href="shop_list.jsp">ì „ì²´</A>-
+    <A href="shop_list.jsp?cat=11">ê°€êµ¬</A>-
+    <A href="shop_list.jsp?cat=22">ì „ê¸°/ì „ì</A>-
+    <A href="shop_list.jsp?cat=33">ë¶€ì—Œìš©í’ˆ</A>-
+    <A href="shop_list.jsp?cat=44">ì˜ë¥˜</A>-
+    <A href="shop_list.jsp?cat=55">ë³´ì„ ë° ì•…ì„¸ì‚¬ë¦¬</A>-
+    <A href="shop_list.jsp?cat=66">í—¬ìŠ¤ ê¸°êµ¬</A>-
+    <A href="shop_list.jsp?cat=77">ì»´í“¨í„° ê´€ë ¨</A>-
+    <A href="shop_list.jsp?cat=88">ê¸°íƒ€</A>
    </FONT>
   </TH>
  </TR>
@@ -119,7 +118,7 @@
   rs = st.executeQuery(sql);
  
   if (!(rs.next()))  
-   out.println("»óÇ°ÀÌ ¾ø½À´Ï´Ù");
+   out.println("ìƒí’ˆì´ ì—†ìŠµë‹ˆë‹¤");
   else {
    do {
     keyid.addElement(new Long(rs.getLong("id")));
@@ -152,34 +151,34 @@
     out.println("<TR ><TH rowspan=4>");
     out.println("<A href=JavaScript:view(\""+large.elementAt(j)+"\")>"); 
     out.println("<IMG border=0 width=70 height=70 src=\""+filename+"\">");
-    out.println("<BR>È®´ë</A></TH>");
+    out.println("<BR>í™•ëŒ€</A></TH>");
     out.println("<TD bgcolor=#DFEDFF>");
-    out.println("<FONT face='µ¸¿òÃ¼' color=black>");
-    out.println( pname.elementAt(j)+"(ÄÚµå:"+id+")");
+    out.println("<FONT face='ë‹ì›€ì²´' color=black>");
+    out.println( pname.elementAt(j)+"(ì½”ë“œ:"+id+")");
     out.println("</FONT></TD></TR>");
     out.println("<TR>");
     out.println("<TD   bgcolor=#eeeeee>");
     out.println(description.elementAt(j));
     out.println("</TD></TR>"); 
     out.println("<TR><TD align=right>");
-    out.println("½ÃÁß°¡: <STRIKE>"+ pricestr+"</STRIKE>¿ø&nbsp;&nbsp;");  
-    out.println("ÆÇ¸Å°¡: "+ dpricestr+"¿ø");  
+    out.println("ì‹œì¤‘ê°€: <STRIKE>"+ pricestr+"</STRIKE>ì›&nbsp;&nbsp;");  
+    out.println("íŒë§¤ê°€: "+ dpricestr+"ì›");  
     out.println("</TD></TR>"); 
     out.println("<FORM method=post name=search action=\"sale.jsp\">");
 	out.println("<TR>");
     out.println("<TD align=right >");
-    out.println("Á¦Á¶(°ø±Ş)¿ø : "+sname.elementAt(j)+"&nbsp;&nbsp;");
+    out.println("ì œì¡°(ê³µê¸‰)ì› : "+sname.elementAt(j)+"&nbsp;&nbsp;");
 
     if (stocki >0) { 
-     out.println("ÁÖ¹®¼ö·®");
-     out.println("<INPUT type=text name=quantity size=2 value=1>°³");
+     out.println("ì£¼ë¬¸ìˆ˜ëŸ‰");
+     out.println("<INPUT type=text name=quantity size=2 value=1>ê°œ");
      out.println("<INPUT type=hidden name=id value="+id+">");
      out.println("<INPUT type=hidden name=go value="+where+">");
      out.println("<INPUT type=hidden name=cat value="+ca+">");
      out.println("<INPUT type=hidden name=pname value="+pn+">");
-     out.println("<INPUT type=submit value=\"¹Ù±¸´Ï¿¡ ´ã±â\">");
+     out.println("<INPUT type=submit value=\"ë°”êµ¬ë‹ˆì— ë‹´ê¸°\">");
     } else
-     out.println("Ç°Àı");
+     out.println("í’ˆì ˆ");
     out.println("</TD></TR></FORM>"); 
    }
    rs.close();    
@@ -193,26 +192,26 @@
  out.println("<HR color=#003399>");
  if (where > 1) {
   out.print("[<A href=\"shop_list.jsp?go=1"); 
-  out.print("&cat="+ca+"&pname="+pn+"\">Ã³À½</A>]");
+  out.print("&cat="+ca+"&pname="+pn+"\">ì²˜ìŒ</A>]");
   out.print("[<A href=\"shop_list.jsp?go="+priorpage);
-  out.print("&cat="+ca+"&pname="+pn+ "\">ÀÌÀü</A>]");
+  out.print("&cat="+ca+"&pname="+pn+ "\">ì´ì „</A>]");
  } else {
-  out.println("[Ã³À½]") ;
-  out.println("[ÀÌÀü]") ;
+  out.println("[ì²˜ìŒ]") ;
+  out.println("[ì´ì „]") ;
  }
  
  if (where < totalpages) {
   out.print("[<A href=\"shop_list.jsp?go="+ nextpage);
-  out.print("&cat="+ca+"&pname="+pn+"\">´ÙÀ½</A>]");
+  out.print("&cat="+ca+"&pname="+pn+"\">ë‹¤ìŒ</A>]");
   out.print("[<A href=\"shop_list.jsp?go="+ totalpages);
-  out.print("&cat="+ca+"&pname="+pn+"\">¸¶Áö¸·</A>]");
+  out.print("&cat="+ca+"&pname="+pn+"\">ë§ˆì§€ë§‰</A>]");
  } else {
-  out.println("[´ÙÀ½]");
-  out.println("[¸¶Áö¸·]");
+  out.println("[ë‹¤ìŒ]");
+  out.println("[ë§ˆì§€ë§‰]");
  }
  
  out.println (where+"/"+totalpages); 
- out.println ("ÀüÃ¼ »óÇ°¼ö :"+totalrows); 
+ out.println ("ì „ì²´ ìƒí’ˆìˆ˜ :"+totalrows); 
 %>
 </BODY>
 </HTML>
