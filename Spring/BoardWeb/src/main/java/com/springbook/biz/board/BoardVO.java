@@ -4,8 +4,12 @@ import java.sql.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 //VO(Value Object)
 public class BoardVO {
+	
+	//local param
 	private int seq;
 	private String title;
 	private String writer;
@@ -17,7 +21,8 @@ public class BoardVO {
 	private String searchKeyword;
 	
 	private MultipartFile uploadFile;
-
+	
+	//getter setter
 	public int getSeq() {
 		return seq;
 	}
@@ -66,12 +71,7 @@ public class BoardVO {
 		this.cnt = cnt;
 	}
 
-	@Override
-	public String toString() {
-		return "BoardVO [seq=" + seq + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regDate="
-				+ regDate + ", cnt=" + cnt + "]";
-	}
-
+	@JsonIgnore
 	public String getSearchCondition() {
 		return searchCondition;
 	}
@@ -80,6 +80,7 @@ public class BoardVO {
 		this.searchCondition = searchCondition;
 	}
 
+	@JsonIgnore
 	public String getSearchKeyword() {
 		return searchKeyword;
 	}
@@ -88,6 +89,7 @@ public class BoardVO {
 		this.searchKeyword = searchKeyword;
 	}
 
+	@JsonIgnore
 	public MultipartFile getUploadFile() {
 		return uploadFile;
 	}
@@ -95,6 +97,16 @@ public class BoardVO {
 	public void setUploadFile(MultipartFile uploadFile) {
 		this.uploadFile = uploadFile;
 	}
+	
+	//method
+	
+	@Override
+	public String toString() {
+		return "BoardVO [seq=" + seq + ", title=" + title + ", writer=" + writer + ", content=" + content + ", regDate="
+				+ regDate + ", cnt=" + cnt + "]";
+	}
+	
+	
 	
 	
 	
