@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="resources/css/style.css" />
+<!-- 제이쿼리 -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!-- 네이버 지도 api -->
+<script type="text/javascript"
+	src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=k5suxr000w"></script>
+<!-- 카카오 맵 검색 api -->
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=100044f4a474d49788c08102ac33fa21&libraries=services"></script>
+
+</head>
+<body>
+	<ul id="nav">
+		<li><a href="/">first map</a></li>
+		<li style="float: right"><a class="active" href="/upload">upload</a></li>
+	</ul>
+	<div id="map" style="width: 100%; height: 100vh"></div>
+
+	<!-- 마커 클러스터링 불러오기 -->
+	<script type="text/javascript"
+		src="resources/javascripts/MarkerClustering.js"></script>
+
+	<!-- 지도 띄우는 자바스크립트 불러오기 -->
+	<script type="text/javascript" src="resources/javascripts/main.js"></script>
+
+
+</body>
+</html>

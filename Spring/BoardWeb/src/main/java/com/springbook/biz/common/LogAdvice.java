@@ -10,6 +10,6 @@ import org.springframework.stereotype.Service;
 public class LogAdvice {
 	@Before("PointcutCommon.allPointcut()")
 	public void printLog(){
-		System.out.println("[°øÅë ·Î±×] ºñÁî´Ï½º ·ÎÁ÷ ¼öÇà Àü µ¿ÀÛ");
+		System.out.println("[ê³µí†µ ë¡œê·¸] ë¹„ì¦ˆë‹ˆìŠ¤ ë¡œì§ ìˆ˜í–‰ ì „ ë™ì‘");
 	}
 }

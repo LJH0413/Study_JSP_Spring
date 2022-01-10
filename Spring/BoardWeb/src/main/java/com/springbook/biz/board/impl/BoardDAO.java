@@ -28,7 +28,7 @@ public class BoardDAO {
 
 	// CRUD 기능 매소드 구현
 	public void insertBoard(BoardVO vo) {
-		System.out.println("===> JDBC�� insertBoard() ��� ó��");
+		System.out.println("===> JDBC insertBoard()");
 		try {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(BOARD_INSERT);
@@ -44,7 +44,7 @@ public class BoardDAO {
 	}
 
 	public void updateBoard(BoardVO vo) {
-		System.out.println("===> JDBC�� updateBoard() ��� ó��");
+		System.out.println("===> JDBC updateBoard()");
 		try {
 			conn = JDBCUtil.getConnection();
 			stmt = conn.prepareStatement(BOARD_UPDATE);

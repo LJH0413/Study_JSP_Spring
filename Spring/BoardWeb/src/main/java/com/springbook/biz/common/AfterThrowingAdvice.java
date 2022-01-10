@@ -12,16 +12,16 @@ public class AfterThrowingAdvice {
 	@AfterThrowing(pointcut="PointcutCommon.allPointcut()", throwing="exceptObj")
 	public void exceptionLog(JoinPoint jp, Exception exceptObj) {
 		String method = jp.getSignature().getName();
-		// System.out.println("[¿¹¿Ü Ã³¸®] " + method + "() ¸Ş¼Òµå ¼öÇà Áß ¹ß»ıµÈ ¿¹¿Ü ¸Ş½ÃÁö : "
+		// System.out.println("[ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½] " + method + "() ï¿½Ş¼Òµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ş½ï¿½ï¿½ï¿½ : "
 		// + exceptObj.getMessage());
 
-		System.out.println(method + "() ¸Ş¼Òµå ¼öÇà Áß ¿¹¿Ü ¹ß»ı!");
+		System.out.println(method + "() ë§¤ì†Œë“œ ìˆ˜í–‰ ì¤‘ ì˜ˆì™¸ ë°œìƒ!");
 		if (exceptObj instanceof IllegalArgumentException) {
-			System.out.println("ºÎÀûÇÕÇÑ °ªÀÌ ÀÔ·ÂµÇ¾ú½À´Ï´Ù.");
+			System.out.println("ë¶€ì í•©í•œ ê°’ì´ ì…ë ¥ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		} else if (exceptObj instanceof NumberFormatException) {
-			System.out.println("¼ıÀÚ Çü½ÄÀÇ °ªÀÌ ¾Æ´Õ´Ï´Ù.");
+			System.out.println("ìˆ«ì í˜•ì‹ì˜ ê°’ì´ ì•„ë‹™ë‹ˆë‹¤.");
 		} else if (exceptObj instanceof Exception) {
-			System.out.println("¹®Á¦°¡ ¹ß»ıÇß½À´Ï´Ù.");
+			System.out.println("ë¬¸ì œê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤.");
 		}
 	}
 }

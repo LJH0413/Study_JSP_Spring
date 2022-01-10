@@ -33,6 +33,7 @@ public class LoginController{
 			session.setAttribute("userName", user.getName());
 			return "getBoardList.do";
 		} else {
+			
 			return "login.jsp";
 		}
 	}

@@ -13,7 +13,7 @@ public class BeforeAdvice {
 		String method = jp.getSignature().getName();
 		Object[] args = jp.getArgs();
 		
-		System.out.println("[»çÀü Ã³¸®] " + method +
-				"() ¸Þ¼Òµå ARGS Á¤º¸ : " + args[0].toString());
+		System.out.println("[ì‚¬ì „ ì²˜ë¦¬] " + method +
+				"() ë§¤ì†Œë“œ ARGS ì •ë³´ : " + args[0].toString());
 	}
 }
